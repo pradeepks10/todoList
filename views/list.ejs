@@ -1,0 +1,30 @@
+
+  <%- include("header") -%>
+
+    <div class="box" id="heading">
+        <h1> <%=ListTitle%> </h1>
+    </div>
+
+    <div class="box">
+        <% newListItems.forEach(function(newItem){%>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" name="checkbox" value="<%=newItem._id%>" onChange="this.form.submit()"> 
+                    <p><%=newItem.name%></p>
+                </div>
+                <!-- we need id and listname for deleting item ,but using value of checkbox we can send only one
+                id or listname. so use hiiden input -->
+                <input type="hidden" name="listName" value="<%=ListTitle%>"></input>
+            
+            </form>
+       <% }) %>
+
+        <form class="item" action="/" method="post">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value="<%=ListTitle%>">+</button>
+        </form>
+
+
+    </div>
+    
+<%- include("footer") -%>

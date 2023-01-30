@@ -19,8 +19,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 // const itemLists = ["Buy Food","Eat Food","Read Books"];
 // const workItems =[];
 mongoose.set('strictQuery',false);
-mongoose.connect("mongodb+srv://pradeep:g5Vy3dGiAtCTgntG@cluster0.ac7btj9.mongodb.net/todolistDB",{useNewUrlParser:true});
-
+mongoose.connect(process.env.CONNECTION_URL,{useNewUrlParser:true});
+// mongoose.connect("mongodb://localhost:27017/todolistDB",{useNewUrlParser:true});
 const itemSchema = {
         name:String
 };
@@ -191,6 +191,5 @@ console.log("Server started on port number 3000 ...");
 
 
 
-//pasword for todoDB
-//g5Vy3dGiAtCTgntG
+
 
